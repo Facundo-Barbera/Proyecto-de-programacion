@@ -12,9 +12,6 @@ A01068388 - Marcela Yépez Rivero - Avenida de Innovación y Transformación
 Version de Python: 3.10.0
 """
 
-# Iniciar lista de trabajadores
-trabajadores = list()
-
 
 # Esta clase actua como un modelo para todos los trabajadores
 class Trabajador:
@@ -40,6 +37,9 @@ class Trabajador:
 
 # Función principal y menu principal
 def main():
+    # Iniciar lista de trabajadores
+    trabajadores = []
+
     # Bucle de menu principal
     while True:
 
@@ -56,10 +56,10 @@ def main():
             seleccion = input('Seleccione una opción: ')
 
             # Revisar si la selección es válida
-            if seleccion in ['1', '2', '3', '4']:
+            if seleccion in ['1', '2', '3', '4', 'cargar']:
 
                 # Decidir que hacer y salir del bucle
-                if seleccion in ['1', '2', '3']:
+                if seleccion in ['1', '2', '3', 'cargar']:
                     break
 
                 # Salir del programa
@@ -111,13 +111,13 @@ def main():
                 print(f'Habilidad: {trabajadores[seleccion].habilidad}')
 
                 # Editar trabajador
-                menu_editar_trabajador(trabajadores[seleccion], seleccion)
+                menu_editar_trabajador(trabajadores[seleccion], seleccion, trabajadores)
 
         # Registrar trabajador
         elif seleccion == '2':
             print('----')  # Separador
             # Registrar nuevo trabajador
-            trabajador = registrar_trabajador()
+            trabajador = registrar_trabajador(trabajadores)
             print(f"Trabajador registrado: {trabajador.nombre}")
 
         # Listar trabajadores
@@ -138,9 +138,14 @@ def main():
                 print('----')  # Separador
                 print('No hay trabajadores registrados.')
 
+        # Cargar trabajadores de archivo
+        elif seleccion == 'cargar':
+            from pruebas import trabajadores_prueba
+            trabajadores += trabajadores_prueba
+
 
 # Menu para editar trabajador
-def menu_editar_trabajador(trabajador, numero_de_trabajador):
+def menu_editar_trabajador(trabajador, numero_de_trabajador, trabajadores):
     # Bucle de menu de edición
     while True:
         print('----')  # Separador
@@ -210,7 +215,7 @@ def menu_editar_trabajador(trabajador, numero_de_trabajador):
 
 
 # Función para registrar trabajador
-def registrar_trabajador():
+def registrar_trabajador(trabajadores):
     # Pedir datos
     nombre = input('Nombre: ')
     grado_de_estudios = input('Grado de estudios: ')
@@ -228,4 +233,5 @@ def registrar_trabajador():
 
 # Iniciar script
 if __name__ == '__main__':
+    # Llamar la función principal
     main()
