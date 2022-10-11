@@ -38,7 +38,7 @@ class Trabajador:
 # Función principal y menu principal
 def main():
     # Iniciar lista de trabajadores
-    trabajadores = []
+    trabajadores = list()
 
     # Bucle de menu principal
     while True:
@@ -140,8 +140,8 @@ def main():
 
         # Cargar trabajadores de archivo
         elif seleccion == 'cargar':
-            from pruebas import trabajadores_prueba
-            trabajadores += trabajadores_prueba
+            from pre_carga import pre_carga
+            trabajadores = pre_carga
 
 
 # Menu para editar trabajador
