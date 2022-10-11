@@ -7,7 +7,7 @@ Fecha:
 Autores:
 A01066843 - Facundo Bautista Barbera - Avenida de Ciencias Aplicadas
 A01067607 - Alejandro Cazares Juarez - Avenida de Innovación y Transformación
-A00000000 - Nombre
+A01068388 - Marcela Yépez Rivero - Avenida de Innovación y Transformación
 
 Version de Python: 3.10.0
 """
@@ -154,7 +154,7 @@ def menu_editar_trabajador(trabajador, numero_de_trabajador):
         while True:
             seleccion = input('Seleccione una opción: ')
 
-            if seleccion in ['1', '2', '3', '4']:
+            if seleccion in ['1', '2', '3', '4', '5']:
                 break
             else:
                 print('Opción no válida.')
