@@ -138,7 +138,7 @@ def main():
                 print('----')  # Separador
                 print('No hay trabajadores registrados.')
 
-        # Cargar trabajadores de archivo
+        # Cargar trabajadores de archivo pre_carga.py
         elif seleccion == 'cargar':
             from pre_carga import pre_carga
             trabajadores = pre_carga
